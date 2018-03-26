@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let d = this.document;
+    let body = d.body;
+    
+    let table = body.appendChild(d.createElement('table'))
+    table.border = 1
+    table.style.height = '50%'
+    table.style.width = '100%'
+    table.style.background = 'red'
+
+    let thead = table.appendChild(d.createElement('thead'))
+    
+    let tbody = table.appendChild(d.createElement('tbody'))
+    // Array to hold reference of each table rows
+    const len = 5
+    let trs = new Array(len)
+    for (let i=0; i<len; i++) {
+      // create a tr object
+      trs[i] = tbody.appendChild(d.createElement('tr'))
+    }
+
+    // Array to hold reference of each table cells
+    let tds = new Array(len)
+    for (let i=0; i<len; i++) {
+      tds[i] = trs[i].insertCell() // obtain ref of a table cell
+      // tds[i].innerText = 'col: ' + (i+1) // <= statement to populate each refed table cell
+    }
+
+    // loop to populate each table cell
+    for (let i=0; i<len; i++) {
+      tds[i].innerText = 'col: ' + (i+1)
+    }
+    
+    let tfoot = table.appendChild(d.createElement('tfoot'))
+  </script>  
+</body>
+
+<script>
+  console.log(d)
+  console.log(body)
+  console.log(table)
+  console.log(thead)
+  console.log(tbody)
+  console.log(trs)
+  console.log(tds)
+  console.log(tfoot)
+</script>
+
+</html>
